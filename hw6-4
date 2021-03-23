@@ -1,0 +1,110 @@
+import random
+""" Базовый класс Машины"""
+class Car:
+
+    def __init__(self, speed, color, name, is_police = False):
+        self.speed = speed
+        self.color = color
+        self.name = name
+        self.is_police = is_police
+
+    def go(self):
+        print(self.name + ' go .... rrrrrrr .... ')
+
+    def stop(self):
+        print(self.name + ' stopped')
+
+    def turn(self):
+        i = random.randint(1,3)
+        if i == 1:
+            result = self.name + ' turns left'
+        elif i == 2:
+            result = self.name + ' straignt'
+        elif i == 3:
+            result = self.name + ' turns right'
+        return print(result)
+
+    def show_speed(self):
+        return print(self.name + ' speed: ' + self.speed)
+
+""" Городской транспорт """
+class TownCar(Car):
+
+    def __init__(self, speed, color, name, is_police = False):
+        super().__init__(speed, color, name, is_police)
+
+    def show_speed(self):
+        if int(self.speed) > 60:
+            car_speed = self.name + ' ' + self.speed + ' over speed!!!'
+        else:
+            car_speed = self.name + ' speed: ' + self.speed
+        return print(car_speed)
+
+"""Спортивная машина"""
+
+class SportCar(Car):
+
+    def __init__(self, speed, color, name, is_police = False):
+        super().__init__(speed, color, name, is_police)
+
+
+"""Дорожная служба"""
+
+class WorkCar(Car):
+
+    def __init__(self, speed, color, name, is_police = False):
+        super().__init__(speed, color, name, is_police)
+
+    def show_speed(self):
+        if int(self.speed) > 40:
+            car_speed = self.name + ' ' + self.speed + ' over speed!!!'
+        else:
+            car_speed = self.name + ' speed: ' + self.speed
+        return print(car_speed)
+
+"""ГИБДД"""
+
+class PoliceCar(Car):
+
+    def __init__(self, speed, color, name, is_police = False):
+        super().__init__(speed, color, name, is_police)
+
+
+"""тело"""
+"""Случайные скорости для каждого класса"""
+speed_rand_car = str(random.randint(10,120))
+speed_rand_towncar = str(random.randint(10,90))
+speed_rand_sportcar = str(random.randint(10,220))
+speed_rand_workcar = str(random.randint(10,60))
+speed_rand_police = str(random.randint(10,120))
+
+
+car1 = Car(speed_rand_car, 'white', 'lADA', False)
+car1.go()
+car1.show_speed()
+car1.turn()
+car1.stop()
+
+towncar1 = TownCar(speed_rand_towncar, 'yelow', 'GAZ', False)
+towncar1.go()
+towncar1.show_speed()
+towncar1.turn()
+towncar1.stop()
+
+sportcar1 = SportCar(speed_rand_sportcar, 'red', 'mustang', False)
+sportcar1.go()
+sportcar1.show_speed()
+sportcar1.turn()
+sportcar1.stop()
+
+workcar1 = WorkCar(speed_rand_workcar, 'red', 'KAMAZ', False)
+workcar1.go()
+workcar1.show_speed()
+workcar1.turn()
+workcar1.stop()
+
+policecar1 = PoliceCar(speed_rand_police, 'blue', 'ford', True)
+policecar1.go()
+policecar1.show_speed()
+policecar1.turn()
+policecar1.stop()

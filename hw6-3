@@ -1,0 +1,27 @@
+class Worker():
+
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage" : float(wage), "bonus" : float(bonus)}
+
+
+class Position(Worker):
+    def __init__(self, name, surname, position, wage, bonus):
+        super().__init__(name, surname, position, wage, bonus)
+
+    def get_full_name(self):
+        total_name = self.name + ' ' + self.surname
+        return  total_name
+
+    def get_total_incone(self):
+        total_income = self._income["wage"] + self._income["bonus"]
+        return total_income
+
+
+w1 = Worker('Jhon', 'Smith', 'worker', "1200.0", "360.0")
+print(w1.name, w1.position, w1._income["wage"])
+p1 = Position ('Jhon', 'Smith', 'worker', "1200.0", "360.0")
+print(p1.get_full_name())
+print(p1.get_total_incone())

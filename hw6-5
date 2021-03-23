@@ -1,0 +1,48 @@
+class Stationery:
+
+    def __init__(self, title):
+        self.title = title
+
+    def draw(self):
+        print('Begining draw ...')
+
+class Pen(Stationery):
+
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        print(self.title + ' writes words!')
+
+class Pencil(Stationery):
+
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        print(self.title + ' sketchs picture! ')
+
+class Handle(Stationery):
+
+    def __init__(self, title):
+        super().__init__(title)
+
+    def draw(self):
+        print(self.title + ' marks numbers')
+
+
+pen1 = Pen('Синия ручка')
+pen1.draw()
+
+pencil1 = Pencil('Грифельный карандаш')
+pencil1.draw()
+
+handle1 = Handle('Желтый маркер')
+handle1.draw()
+
+s1 = Stationery('Empty')
+s1.draw()
+
+
+
+

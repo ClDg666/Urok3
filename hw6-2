@@ -1,0 +1,18 @@
+class Road():
+
+    def __init__(self, mass, thick):
+        self._length = 5000
+        self._width = 20
+        self.mass = mass
+        self.thick = thick
+
+
+    def total_mass_asphalt(self):
+        total_mass = (self._length * self._width * self.mass * (self.thick/100)) / 1000
+        return total_mass
+
+m = 25  # в килограммах
+t = 5   # в сантиметрах
+
+road1 = Road(m, t)
+print(str(road1.total_mass_asphalt()) + ' ton')
